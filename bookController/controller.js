@@ -42,7 +42,7 @@ const displaying=()=>{
   }
  // updating the book in the database
 
- const updatingBook = (id,newBook)=>{
+ const updatingBook = (id, key,newBook )=>{
 
     // checking if the id exists
     var existingBook
@@ -53,7 +53,7 @@ const displaying=()=>{
     }
     else{
 
-        existingBook[newBook]=value;
+        existingBook[key]=newBook;
 
         console.log("\n the book has been updated");
         console.log(existingBook)
@@ -63,7 +63,7 @@ const displaying=()=>{
 
  // updating many  books in the database
 
- const updatingManyBooks = (id,  key,  many)=>{
+ const updatingManyBooks = (id,  many)=>{
 
     const existingBook=booksDatabase.find(element=> element.id===id);
     if(!existingBook){
@@ -75,7 +75,7 @@ const displaying=()=>{
 
          existingBook[key]=many[key];
 
-         console.log("\n the book has been updated");
+         console.log("\n many book  has been updated");
          console.log(existingBook)
         }
     }
