@@ -1,5 +1,5 @@
 // importing the database 
-const db = require("../Db/booksDb");
+const {booksDatabase} = require("../Db/booksDb");
 
 
 // add the new book to the database
@@ -26,16 +26,18 @@ const displaying=()=>{
 
   const  removingBook = (id)=>{
 
-    const existingBook = [];
-    existingBook=booksDatabase.filter(element=> element.id==id)
-    var remainingBook
+    // const existingBook = [];
+    existingBook=booksDatabase.filter(element=> element.id===id)
+    var remainingBook=[];
     if(!existingBook){
         console.log("\n Book not found");
+        // console.log(existingBook)
     }
     else{
     remainingBook=booksDatabase.filter(element=> element.id!==id);
 
     console.log("\n Book removed");
+    console.log(remainingBook);
     }
   }
  // updating the book in the database
@@ -54,6 +56,7 @@ const displaying=()=>{
         existingBook[newBook]=value;
 
         console.log("\n the book has been updated");
+        console.log(existingBook)
     }
  }
 
@@ -70,9 +73,10 @@ const displaying=()=>{
 
         for(key in many){
 
-            
-
          existingBook[key]=many[key];
+
+         console.log("\n the book has been updated");
+         console.log(existingBook)
         }
     }
  }
@@ -83,6 +87,7 @@ module.exports={
     addBook,
     displaying,
     removingBook,
-    updatingBook
+    updatingBook,
+    updatingManyBooks
 }
 
